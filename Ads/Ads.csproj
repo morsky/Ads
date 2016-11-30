@@ -279,6 +279,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ads.Data\Ads.Data.csproj">
+      <Project>{D83D20FC-0B07-4CEB-BB73-A0351FCA02A5}</Project>
+      <Name>Ads.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ads.Models\Ads.Models.csproj">
+      <Project>{34104c8c-1637-4158-9573-4aad0418b47d}</Project>
+      <Name>Ads.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
