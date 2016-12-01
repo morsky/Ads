@@ -1,18 +1,26 @@
-﻿namespace Ads.Controllers
+﻿using System;
+using System.Linq;
+
+namespace Ads.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
     using Data;
+    using System.Collections.Generic;
+    using ViewModels;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-            AdsDbContext context = new AdsDbContext();
+            ICollection<AdViewModel> ads = Context.Ads.Select(a => new AdViewModel()
+            {
+                Title = a.Title,
+                Content = a.Content,
+                CreatedOn = a.CreatedOn
+            })
+            .ToList();
 
-            //var count = context.Ads.Count();
-
-            return View();
+            return View(ads);
         }
 
         public ActionResult About()
