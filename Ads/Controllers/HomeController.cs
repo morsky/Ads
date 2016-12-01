@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace Ads.Controllers
+﻿namespace Ads.Controllers
 {
     using System.Web.Mvc;
     using System.Linq;
     using System.Collections.Generic;
     using ViewModels;
-    using Models;
 
     public class HomeController : BaseController
     {
@@ -16,33 +13,12 @@ namespace Ads.Controllers
             {
                 Title = a.Title,
                 Content = a.Content,
-                CreatedOn = a.CreatedOn
+                CreatedOn = a.CreatedOn,
+                User = a.User
             })
             .ToList();
 
             return View(ads);
-        }
-
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(AdViewModel ad)
-        {
-            Ad newAdad = new Ad()
-            {
-                Title = ad.Title,
-                Content = ad.Content,
-                CreatedOn = DateTime.Now
-            };
-
-            this.Context.Ads.Add(newAdad);
-            this.Context.SaveChanges();
-
-            return RedirectToAction("Index");
         }
 
         public ActionResult About()

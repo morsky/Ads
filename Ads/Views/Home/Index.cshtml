@@ -10,5 +10,9 @@
         <p>@item.Title</p>
         <p>@item.Content</p>
         <p>Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
+        @if (item.User != null)
+        {
+            <p>Created by: @item.User.UserName</p>
+        }
     </div>
 }
