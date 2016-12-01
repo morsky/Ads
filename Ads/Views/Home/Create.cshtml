@@ -1,0 +1,13 @@
+﻿@model Ads.ViewModels.AdViewModel
+
+<h2>Create New Add</h2>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <p>@Html.LabelFor(model => model.Title)</p>
+    <p>@Html.TextBoxFor(model => model.Title)</p>
+    <p>@Html.LabelFor(model => model.Content)</p>
+    <p>@Html.TextAreaFor(model => model.Content)</p>
+
+    <input type="submit" />
+}

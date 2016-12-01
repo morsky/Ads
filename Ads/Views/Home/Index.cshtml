@@ -7,10 +7,8 @@
 @foreach (var item in Model)
 {
     <div class="jumbotron">
-
-
         <p>@item.Title</p>
         <p>@item.Content</p>
-        <p>Created on: @String.Format("{0:d}", item.CreatedOn)</p>
+        <p>Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
     </div>
 }
