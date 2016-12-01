@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Ads.ViewModels.AdViewModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+@foreach (var item in Model)
+{
+    <div class="jumbotron">
+        <p>@item.Title</p>
+        <p>@item.Content</p>
+        <p>Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
+        @if (item.User != null)
+        {
+            <p>Created by: @item.User.UserName</p>
+        }
+        
+        <p>@Html.ActionLink("Edit  Add", "EditAd") | 
+            @Html.ActionLink("Delete Add", "DeleteAd", new { id = item.Id}, null)</p>
+        
+        <p>Item ID: @item.Id</p>
+    </div>
+}

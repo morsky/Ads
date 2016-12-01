@@ -2,7 +2,7 @@
 
 <h2>Create New Add</h2>
 
-@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+@using (Html.BeginForm("CreateAd", "User", FormMethod.Post))
 {
     <p>@Html.LabelFor(model => model.Title)</p>
     <p>@Html.TextBoxFor(model => model.Title)</p>
