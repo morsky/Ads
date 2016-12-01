@@ -10,7 +10,7 @@
         {
             AdsDbContext context = new AdsDbContext();
 
-            var count = context.Ads.Count();
+            //var count = context.Ads.Count();
 
             return View();
         }
