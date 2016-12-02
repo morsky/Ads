@@ -1,0 +1,13 @@
+﻿@model Ads.Models.Ad
+
+<h2>Edit Add</h2>
+
+@using (Html.BeginForm("EditAd", "User", FormMethod.Post))
+{
+    <p>@Html.LabelFor(model => model.Title)</p>
+    <p>@Html.EditorFor(model => model.Title)</p>
+    <p>@Html.LabelFor(model => model.Content)</p>
+    <p>@Html.EditorFor(model => model.Content)</p>
+
+    <input type="submit" />
+}

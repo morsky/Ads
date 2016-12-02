@@ -272,6 +272,7 @@
     <Content Include="Views\User\CreateAd.cshtml" />
     <Content Include="Views\User\ListAds.cshtml" />
     <Content Include="Views\User\DeleteAd.cshtml" />
+    <Content Include="Views\User\EditAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

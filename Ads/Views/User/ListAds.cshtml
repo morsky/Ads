@@ -15,7 +15,7 @@
             <p>Created by: @item.User.UserName</p>
         }
         
-        <p>@Html.ActionLink("Edit  Add", "EditAd") | 
+        <p>@Html.ActionLink("Edit  Add", "EditAd", new { id = item.Id }, null) | 
             @Html.ActionLink("Delete Add", "DeleteAd", new { id = item.Id}, null)</p>
         
         <p>Item ID: @item.Id</p>
