@@ -1,7 +1,4 @@
-﻿using System.Data.Entity;
-using Microsoft.AspNet.Identity;
-
-namespace Ads.Controllers
+﻿namespace Ads.Controllers
 {
     using System.Web.Mvc;
     using System;
@@ -9,6 +6,8 @@ namespace Ads.Controllers
     using Models;
     using ViewModels;
     using System.Collections.Generic;
+    using System.Data.Entity;
+    using Microsoft.AspNet.Identity;
 
     public class UserController : BaseController
     {
@@ -71,25 +70,16 @@ namespace Ads.Controllers
             {
                 return HttpNotFound();
             }
-
-            TempData["AdModel"] = ad;
-
+            
             return View(ad);
         }
 
         [HttpPost]
-        public ActionResult EditAd([Bind(Include = "Title, Content")] Ad ad)
+        public ActionResult EditAd([Bind(Include = "Id, Title, Content")] Ad ad)
         {
-            //ad.User = Context.Users.Find(User.Identity.GetUserId());
-            //ad.CreatedOn = DateTime.Now;
-            var currentAd = TempData["AdModel"] as Ad;
-
-            if (currentAd != null)
-            {
-                ad.Id = currentAd.Id;
-                ad.CreatedOn = currentAd.CreatedOn;
-            }
-
+            ad.User = Context.Users.Find(User.Identity.GetUserId());
+            ad.CreatedOn = DateTime.Now;
+            
             if (ModelState.IsValid)
             {
                 Context.Ads.Attach(ad);
