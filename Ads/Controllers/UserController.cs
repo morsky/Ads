@@ -20,6 +20,7 @@
 
         [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateAd(AdViewModel adViewModel)
         {
             if (!ModelState.IsValid)
@@ -43,6 +44,7 @@
             return RedirectToAction("ListAds", "User");
         }
 
+        [HttpGet]
         public ActionResult ListAds()
         {
             var user = this.Context.Users.FirstOrDefault(u => u.Email == HttpContext.User.Identity.Name);
@@ -75,6 +77,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditAd([Bind(Include = "Id, Title, Content")] Ad ad)
         {
             ad.User = Context.Users.Find(User.Identity.GetUserId());
@@ -90,6 +93,7 @@
             return RedirectToAction("ListAds", "User");
         }
 
+        [HttpDelete]
         public ActionResult DeleteAd(int? id)
         {
             var ad = Context.Ads.Find(id);
