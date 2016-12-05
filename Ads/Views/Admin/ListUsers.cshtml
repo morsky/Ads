@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Ads.ViewModels.ApplicationUserViewModel>
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<h2>List Users</h2>
+
+User count: @Model.Count()
+
+@foreach (var user in Model)
+{
+    <p>@user.UserName</p>
+    <p>
+        @Html.ActionLink("Edit User Role", "Edit", "Admin") |
+        @Html.ActionLink("Delete User", "Delete", "Admin")
+    </p>
+}
