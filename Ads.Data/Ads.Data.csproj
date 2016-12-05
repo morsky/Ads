@@ -58,6 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdsDbContext.cs" />
+    <Compile Include="Migrations\201612050918556_InitialCreate.cs" />
+    <Compile Include="Migrations\201612050918556_InitialCreate.Designer.cs">
+      <DependentUpon>201612050918556_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +74,11 @@
       <Project>{34104C8C-1637-4158-9573-4AAD0418B47D}</Project>
       <Name>Ads.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612050918556_InitialCreate.resx">
+      <DependentUpon>201612050918556_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
