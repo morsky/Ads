@@ -24,7 +24,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Crete Ad", "CreateAd", "User")</li>
                     
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("User"))
                     {
                         <li>@Html.ActionLink("All User's Ads", "ListAds", "User")</li>
                     }

@@ -14,6 +14,7 @@
                 Title = a.Title,
                 Content = a.Content,
                 CreatedOn = a.CreatedOn,
+                FileName = a.FileName,
                 User = a.User
             })
             .ToList();

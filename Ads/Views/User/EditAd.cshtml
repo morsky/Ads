@@ -2,13 +2,17 @@
 
 <h2>Edit Add</h2>
 
-@using (Html.BeginForm("EditAd", "User", FormMethod.Post))
+@using (Html.BeginForm("EditAd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <p>@Html.LabelFor(model => model.Title)</p>
     <p>@Html.EditorFor(model => model.Title)</p>
+    
     <p>@Html.LabelFor(model => model.Content)</p>
     <p>@Html.EditorFor(model => model.Content)</p>
+
+    <p>@Html.Label("Image")</p>
+    <input type="file" id="Image" name="file" />
 
     <input type="submit" />
 }
