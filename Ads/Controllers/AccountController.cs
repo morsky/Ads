@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Ads.Models;
+using Ads;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ads.Controllers
 {
@@ -153,6 +155,16 @@ namespace Ads.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                //TODO Check is this correct way to assign user to role
+                var roleStore = new RoleStore<IdentityRole>(Context);
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+                var userStore = new UserStore<ApplicationUser>(Context);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                userManager.AddToRole(user.Id, "User");
+                //TODO - End of adding role to user
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
