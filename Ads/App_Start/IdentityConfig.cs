@@ -54,11 +54,11 @@ namespace Ads
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequiredLength = 3, // 6
+                RequireNonLetterOrDigit = false, // true
+                RequireDigit = false, // true
+                RequireLowercase = false, // true
+                RequireUppercase = false, // true
             };
 
             // Configure user lockout defaults
