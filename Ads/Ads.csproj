@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -276,10 +277,14 @@
     <Content Include="Views\User\DeleteAd.cshtml" />
     <Content Include="Views\User\EditAd.cshtml" />
     <Content Include="Views\Admin\ListUsers.cshtml" />
+    <Content Include="Views\Admin\ListAds.cshtml" />
+    <Content Include="Views\Admin\EditAd.cshtml" />
+    <Content Include="Views\Admin\DeleteAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\CRUD\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

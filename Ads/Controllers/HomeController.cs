@@ -9,6 +9,8 @@
     {
         public ActionResult Index()
         {
+            Context.Ads.Count();
+
             ICollection<AdViewModel> ads = Context.Ads.Select(a => new AdViewModel()
             {
                 Title = a.Title,

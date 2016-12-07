@@ -29,6 +29,12 @@
                         <li>@Html.ActionLink("All User's Ads", "ListAds", "User")</li>
                     }
 
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("List All Users", "ListUsers", "Admin")</li>
+                        <li>@Html.ActionLink("List All Ads", "ListAds", "Admin")</li>
+                    }
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

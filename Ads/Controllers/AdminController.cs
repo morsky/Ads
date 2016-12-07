@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using ViewModels;
-    public class AdminController : BaseController
+    public class AdminController : CRUDController
     {
         [HttpGet]
         public ActionResult ListUsers()
@@ -17,8 +17,8 @@
                 UserName = u.UserName,
                 Email = u.Email,
             })
-            .Where(u => u.Email != admin.Email)          
-            .ToList();            
+            .Where(u => u.Email != admin.Email)
+            .ToList();
 
             return View(users);
         }

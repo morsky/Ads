@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Ads.ViewModels.AdViewModel>
+
+@{
+    ViewBag.Title = "ListAds";
+}
+
+@foreach (var item in Model)
+{
+    <div class="jumbotron">
+        <p>@item.Title</p>
+        <p>@item.Content</p>
+        <p>Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
+        <p>Created by: @item.User.UserName</p>
+
+        @if (item.FileName != null)
+        {
+            <img src="~/Images/AdsImages/@item.FileName" alt="@item.FileName" />
+        }
+
+        <p>
+            @Html.ActionLink("Edit  Add", "EditAd", new { id = item.Id }, null) |
+            @Html.ActionLink("Delete Add", "DeleteAd", new { id = item.Id }, null)
+        </p>
+    </div>
+}
