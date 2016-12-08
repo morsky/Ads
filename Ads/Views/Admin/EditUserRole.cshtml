@@ -1,0 +1,23 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "EditUserRole";
+}
+
+<h2>Edit User Role</h2>
+
+@using (Html.BeginForm("EditUserRole", "Admin", FormMethod.Post))
+{
+    <p>
+        @ViewBag.User is in role: @ViewBag.UserRoles[0]
+    </p>
+
+    <p>
+        @Html.DropDownList("UserRole",
+                    new SelectList(Model),
+                    "Select New Role",
+                    new { @class = "form-control" })
+    </p>
+
+    <input type="submit" />
+}

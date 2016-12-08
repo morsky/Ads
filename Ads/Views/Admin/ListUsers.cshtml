@@ -11,7 +11,7 @@ User count: @Model.Count()
 {
     <p>@user.UserName</p>
     <p>
-        @Html.ActionLink("Edit User Role", "EditUser", "Admin", new { id = user.Id }, null) |
+        @Html.ActionLink("Edit User Role", "EditUserRole", "Admin", new { id = user.Id }, null) |
         @Html.ActionLink("Delete User", "DeleteUser", "Admin", new { id = user.Id }, null)
     </p>
 }
