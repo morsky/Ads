@@ -126,6 +126,8 @@
         {
             string fileName = null;
 
+            Directory.CreateDirectory(Server.MapPath("~\\Images\\AdsImages"));
+
             if (file != null && file.ContentLength > 0)
             {
                 string id = Guid.NewGuid().ToString();
