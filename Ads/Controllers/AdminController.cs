@@ -45,17 +45,26 @@
             foreach (var role in roles)
             {
                 userRoles.Add(role.Name);
-            }            
+            }         
 
             return View(userRoles);
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult EditUserRole(List<string> role)
+        public ActionResult EditUserRole([Bind(Include = "UserName")] string id, FormCollection form)
         {
+            string newRole = form["UserRole"].ToString();            
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(Context));
+            var currentRole = UserManager.GetRoles(id)[0];
 
-            return View();
+            if (newRole != currentRole)
+            {
+                UserManager.RemoveFromRole(id, currentRole);
+                UserManager.AddToRole(id, newRole);
+            }
+
+            return RedirectToAction("ListUsers", "Admin");
         }
 
         [Authorize]
