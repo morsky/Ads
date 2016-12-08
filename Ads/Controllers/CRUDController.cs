@@ -128,7 +128,9 @@
 
             if (file != null && file.ContentLength > 0)
             {
-                fileName = Path.GetFileName(file.FileName);
+                string id = Guid.NewGuid().ToString();
+                string extension = Path.GetExtension(file.FileName);                
+                fileName = id + extension;
                 var path = Path.Combine(Server.MapPath("~/Images/AdsImages"), fileName);
                 file.SaveAs(path);
             }
