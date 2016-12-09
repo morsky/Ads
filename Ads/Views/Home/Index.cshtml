@@ -1,8 +1,10 @@
-﻿@{
+﻿@using PagedList;
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-@model IEnumerable<Ads.ViewModels.AdViewModel>
+@model IPagedList<Ads.ViewModels.AdViewModel>
 
 @if (Model.Count() == 0)
 {
@@ -42,3 +44,9 @@
         </div>
     </div>
 }
+
+<div>
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

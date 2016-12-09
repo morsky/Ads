@@ -4,10 +4,10 @@
     using System.Linq;
     using System.Collections.Generic;
     using ViewModels;
-
+    using PagedList;
     public class HomeController : BaseController
     {
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             Context.Ads.Count();
 
@@ -21,7 +21,23 @@
             })
             .ToList();
 
-            return View(ads);
+            ViewBag.CurrentSort = sortOrder;
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            int pageSize = 2;
+            int pageNumber = (page ?? 1);
+
+            return View(ads.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult About()
