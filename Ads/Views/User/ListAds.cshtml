@@ -7,17 +7,34 @@
 @foreach (var item in Model)
 {
     <div class="jumbotron">
-        <p>@item.Title</p>
-        <p>@item.Content</p>
-        <p>Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
-        <p>Created by: @item.User.UserName</p>
+        <div class="row">
 
-        @if (item.FileName != null)
-        {
-            <img src="~/Images/AdsImages/@item.FileName" alt="@item.FileName" />
-        }
-        
-        <p>
+            @if (item.FileName != null)
+            {
+                <div class="col-md-4">
+                    <img src="~/Images/AdsImages/@item.FileName" alt="@item.FileName" />
+                </div>
+
+                <div class="col-md-8">
+                    <h2>@item.Title</h2>
+                    <p class="text-justify">@item.Content</p>
+                    <p class="text-right">Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
+                    <p class="text-right">Created by: @item.User.UserName</p>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    <h2>@item.Title</h2>
+                    <p class="text-justify">@item.Content</p>
+                    <p class="text-right">Created on: @String.Format("{0:d} at: {0:t}", item.CreatedOn)</p>
+                    <p class="text-right">Created by: @item.User.UserName</p>
+                </div>
+            }
+
+        </div>        
+
+        <p class="text-center">
             @Html.ActionLink("Edit  Add", "EditAd", new { id = item.Id }, null) |
             @Html.ActionLink("Delete Add", "DeleteAd", new { id = item.Id }, null)
         </p>

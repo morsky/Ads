@@ -1,0 +1,15 @@
+﻿img {  
+  width: 300px;
+}
+
+input, textarea {
+  max-width: 100% !important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.form-textarea {
+  max-width: 100%;
+}

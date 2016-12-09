@@ -1,20 +1,28 @@
 ﻿@model Ads.ViewModels.AdViewModel
 
-<h2>Create New Add</h2>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Create New Add</h2>
 
-@using (Html.BeginForm("CreateAd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <p>@Html.LabelFor(model => model.Title)</p>
-    <p>@Html.TextBoxFor(model => model.Title)</p>
-    
-    <p>@Html.LabelFor(model => model.Content)</p>
-    <p>@Html.TextAreaFor(model => model.Content)</p>
+            @using (Html.BeginForm("CreateAd", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form class="form-group">
+                    @Html.AntiForgeryToken()
+                    <p>@Html.LabelFor(model => model.Title)</p>
+                    <p>@Html.TextBoxFor(model => model.Title)</p>
 
-    <p>@Html.Label("Image")</p>
-    <input type="file" id="Image" name="file" />
+                    <p>@Html.LabelFor(model => model.Content)</p>
+                    <p>@Html.TextAreaFor(model => model.Content, new { @class= "form-textarea" })</p>
 
-    <input type="submit" />
+                    <p>@Html.Label("Image")</p>
+                    <input type="file" id="Image" name="file" />
 
-    <p>@Html.ActionLink("Back", "ListAds", "User")</p>
-}
+                    <input type="submit" />
+
+                    <p>@Html.ActionLink("Back", "ListAds", "User")</p>
+                </form>
+            }
+        </div>
+     </div>
+</div>
